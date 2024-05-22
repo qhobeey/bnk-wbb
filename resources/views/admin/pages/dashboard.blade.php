@@ -20,8 +20,8 @@
                     </div>
 
                     <div class="mt-3">
-                        <p class="text-2xl font-semibold">£{{number_format($account->balance, 2)}}</p>
-                        <p class="text-xs">+ 6.5%</p>
+                        <p class="text-2xl font-semibold">€{{number_format($account->balance, 2)}}</p>
+                        {{-- <p class="text-xs">+ 6.5%</p> --}}
                     </div>
 
                     <div class="mt-4 flex space-x-7">
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="text-white">
                                     <p class="text-lg font-semibold tracking-wide">
-                                        £{{number_format($account->card1, 2)}}
+                                        €{{number_format($account->card1, 2)}}
                                     </p>
                                     <p class="mt-1 text-xs font-medium">
                                         **** **** **** 7946
@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="text-white">
                                     <p class="text-lg font-semibold tracking-wide">
-                                        £{{number_format($account->card2, 2)}}
+                                        €{{number_format($account->card2, 2)}}
                                     </p>
                                     <p class="mt-1 text-xs font-medium">
                                         **** **** **** 5699
@@ -127,7 +127,7 @@
                                 </div>
                                 <div class="text-white">
                                     <p class="text-lg font-semibold tracking-wide">
-                                        £{{number_format($account->card3, 2)}}
+                                        €{{number_format($account->card3, 2)}}
                                     </p>
                                     <p class="mt-1 text-xs font-medium">
                                         **** **** **** 8945
@@ -178,11 +178,11 @@
                                         Konnor Guzman
                                     </p>
                                     <p class="text-xs text-slate-400 line-clamp-1 dark:text-navy-200">
-                                        Aug 21, 2023 - 08:05
+                                        Aug 21, 2018 - 08:05
                                     </p>
                                 </div>
                             </div>
-                            <p class="font-medium text-success">£660.22</p>
+                            <p class="font-medium text-success">€11,660.22</p>
                         </div>
                         <div class="flex cursor-pointer items-center justify-between">
                             <div class="flex items-center space-x-3">
@@ -191,11 +191,11 @@
                                         Henry Curtis
                                     </p>
                                     <p class="text-xs text-slate-400 line-clamp-1 dark:text-navy-200">
-                                        Aug 19, 2023 - 11:55
+                                        Aug 19, 2018 - 11:55
                                     </p>
                                 </div>
                             </div>
-                            <p class="font-medium text-success">£33.63</p>
+                            <p class="font-medium text-success">€4,933.63</p>
                         </div>
                         <div class="flex cursor-pointer items-center justify-between">
                             <div class="flex items-center space-x-3">
@@ -204,11 +204,11 @@
                                         Derrick Simmons
                                     </p>
                                     <p class="text-xs text-slate-400 line-clamp-1 dark:text-navy-200">
-                                        Jul 16, 2023 - 14:45
+                                        Jul 16, 2017 - 14:45
                                     </p>
                                 </div>
                             </div>
-                            <p class="font-medium text-success">£674.63</p>
+                            <p class="font-medium text-success">€6,274.63</p>
                         </div>
                         <div class="flex cursor-pointer items-center justify-between">
                             <div class="flex items-center space-x-3">
@@ -217,11 +217,11 @@
                                         Kartina West
                                     </p>
                                     <p class="text-xs text-slate-400 line-clamp-1 dark:text-navy-200">
-                                        Jun 13, 2023 - 11:30
+                                        Jun 13, 2017 - 11:30
                                     </p>
                                 </div>
                             </div>
-                            <p class="font-medium text-error">£547.63</p>
+                            <p class="font-medium text-error">€5,947.63</p>
                         </div>
                         <div class="flex cursor-pointer items-center justify-between">
                             <div class="flex items-center space-x-3">
@@ -230,11 +230,11 @@
                                         Samantha Shelton
                                     </p>
                                     <p class="text-xs text-slate-400 line-clamp-1 dark:text-navy-200">
-                                        Mar 10, 2023 - 09:41
+                                        Mar 10, 2017 - 09:41
                                     </p>
                                 </div>
                             </div>
-                            <p class="font-medium text-success">£736.24</p>
+                            <p class="font-medium text-success">€7,536.24</p>
                         </div>
                         <div class="flex cursor-pointer items-center justify-between">
                             <div class="flex items-center space-x-3">
@@ -243,11 +243,11 @@
                                         Joe Perkins
                                     </p>
                                     <p class="text-xs text-slate-400 line-clamp-1 dark:text-navy-200">
-                                        Feb 06, 2023 - 11:41
+                                        Feb 06, 2017 - 11:41
                                     </p>
                                 </div>
                             </div>
-                            <p class="font-medium text-success">£558.88</p>
+                            <p class="font-medium text-success">€5,058.88</p>
                         </div>
                     </div>
                 </div>
@@ -301,7 +301,7 @@
                             <select
                                 class="form-select rounded-l-lg border border-slate-300 bg-white px-3 py-2 pr-9 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:bg-navy-700 dark:hover:border-navy-400 dark:focus:border-accent"
                             >
-                                <option>£</option>
+                                <option>€</option>
                             </select>
                             <input
                                 class="form-input w-full rounded-r-lg border border-slate-300 bg-transparent px-3 py-2 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"

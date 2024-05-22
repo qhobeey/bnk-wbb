@@ -1024,115 +1024,6 @@
 </section>
 <!--End Money Exchange Rates Area-->
 
-<!--Start Blog Style2 Area-->
-<section id="news" class="blog-style2-area pdb60">
-    <div class="container">
-        <div class="sec-title text-center">
-            <h2>Latest From News Room</h2>
-            <div class="sub-title">
-                <p>Our blog post provides you all the updates & guides.</p>
-            </div>
-        </div>
-        <div class="row">
-            <!--Start Single blog Style2-->
-            <div class="col-xl-6">
-                <div class="single-blog-style1 single-blog-style1--style2">
-                    <div class="img-holder">
-                        <div class="inner">
-                            <img src="/front/assets/images/blog/blog-v2-1.jpg" alt="" />
-                            <div class="overlay-icon">
-                                <a href="blog-single.html">
-                                    <span class="icon-right-arrow"></span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="category-date-box">
-                            <div class="category">
-                                <span class="icon-play-button-1"></span>
-                                <h5>Banking</h5>
-                            </div>
-                            <div class="date">
-                                <h5>May 29, 2022</h5>
-                            </div>
-                            <div class="author">
-                                <h5>By <a href="#">Henry Theo</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-holder">
-                        <h3 class="blog-title">
-                            <a href="blog-single.html">
-                                How Non-US Citizens can Open<br />
-                                a Bank Account
-                            </a>
-                        </h3>
-                        <div class="bottom">
-                            <div class="read-more-btn">
-                                <a href="blog-single.html"><span class="icon-right-arrow"></span>Read More</a>
-                            </div>
-                            <div class="meta-box">
-                                <ul class="meta-info">
-                                    <li><span class="icon-clock"></span> <a href="#">6 Mins Read</a></li>
-                                    <li><span class="icon-comment"></span> <a href="#">10 Cmnts</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Single blog Style2-->
-
-            <!--Start Single blog Style2-->
-            <div class="col-xl-6">
-                <div class="single-blog-style1 single-blog-style1--style2">
-                    <div class="img-holder">
-                        <div class="inner">
-                            <img src="/front/assets/images/blog/blog-v2-2.jpg" alt="" />
-                            <div class="overlay-icon">
-                                <a href="blog-single.html">
-                                    <span class="icon-right-arrow"></span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="category-date-box">
-                            <div class="category">
-                                <span class="icon-play-button-1"></span>
-                                <h5>Press Release</h5>
-                            </div>
-                            <div class="date">
-                                <h5>May 25, 2022</h5>
-                            </div>
-                            <div class="author">
-                                <h5>By <a href="#">Roman Frederick</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-holder">
-                        <h3 class="blog-title">
-                            <a href="blog-single.html">
-                                Board Approves Capital Raise of<br />
-                                Rs. 2000 Crores
-                            </a>
-                        </h3>
-                        <div class="bottom">
-                            <div class="read-more-btn">
-                                <a href="blog-single.html"><span class="icon-right-arrow"></span>Read More</a>
-                            </div>
-                            <div class="meta-box">
-                                <ul class="meta-info">
-                                    <li><span class="icon-clock"></span> <a href="#">6 Mins Read</a></li>
-                                    <li><span class="icon-comment"></span> <a href="#">10 Cmnts</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Single blog Style2-->
-        </div>
-    </div>
-</section>
-<!--End Blog Style2 Area-->
 
 <!--Start Features Style2 Area-->
 <section class="features-style2-area">
@@ -1374,7 +1265,7 @@
                                                             <h4>Call for</h4>
                                                             <h3>Private Banking</h3>
                                                             <h2>
-                                                                <a href="tel:2512353256">+8 (222) 123 456 78</a>
+                                                                <a href="tel:+493030715974">+49 30 3071 5974</a>
                                                             </h2>
                                                         </div>
                                                         <!--End Single Item-->

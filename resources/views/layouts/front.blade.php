@@ -207,7 +207,7 @@
                                     <h4>Updates:</h4>
                                 </div>
                                 <div class="text">
-                                    <p>Get upto 4%* on our Savings Account Balances with German American Bancd.</p>
+                                    <p>Get upto 4%* on our Savings Account Balances with German American Banck.</p>
                                     <a href="#"><span class="icon-chevron"></span>More Details</a>
                                 </div>
                             </div>
