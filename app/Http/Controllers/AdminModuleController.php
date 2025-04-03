@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,8 @@ class AdminModuleController extends Controller
     public function dashboard(Request $request)
     {
         $account = Account::first();
-        return view('admin.pages.dashboard', compact('account'));
+        $transactions = Transaction::orderBy('date', 'desc')->get();
+        return view('admin.pages.dashboard', compact('account', 'transactions'));
     }
     public function transfer(Request $request)
     {

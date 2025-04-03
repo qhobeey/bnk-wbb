@@ -1,324 +1,137 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="main-content w-full px-[var(--margin-x)] pb-8">
-    <div class="mt-4 grid grid-cols-12 gap-4 sm:mt-5 sm:gap-5 lg:mt-6 lg:gap-6">
-        <div class="col-span-12 grid grid-cols-12 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 py-5 sm:py-6">
-            <div class="col-span-12 sm:col-span-6 lg:col-span-4">
-                <div class="px-4 text-white sm:px-5">
-                    <div class="-mt-1 flex items-center space-x-2">
-                        <h2 class="text-base font-medium tracking-wide">Balance</h2>
-                        <div x-data="usePopper({placement:'bottom-end',offset:4})" @click.outside="isShowPopper &amp;&amp; (isShowPopper = false)" class="inline-flex">
-                            <button x-ref="popperRef" @click="isShowPopper = !isShowPopper" class="btn h-8 w-8 rounded-full p-0 hover:bg-white/20 focus:bg-white/20 active:bg-white/25">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path>
-                                </svg>
-                            </button>
-
-                            
-                        </div>
-                    </div>
-
-                    <div class="mt-3">
-                        <p class="text-2xl font-semibold">€{{number_format($account->balance, 2)}}</p>
-                        {{-- <p class="text-xs">+ 6.5%</p> --}}
-                    </div>
-
-                    <div class="mt-4 flex space-x-7">
-                        <div>
-                            <div x-data="{showModal:false}">
-                                <button @click="showModal = true" class="btn bg-slate-150 font-medium text-slate-800 hover:bg-slate-200 focus:bg-slate-200 active:bg-slate-200/80 dark:bg-navy-500 dark:text-navy-50 dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90">
-                                    Transfer Money 
-                                </button>
-                                @include('admin.fragments.transfer-modal')
-                            </div>
-                        </div>
-                        <div>
-                            <div class="mt-1 flex items-center space-x-2">
-                                <button disabled
-                                    class="btn bg-slate-150 font-medium text-slate-800 hover:bg-slate-200 focus:bg-slate-200 active:bg-slate-200/80 dark:bg-navy-500 dark:text-navy-50 dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90">
-                                    Deposit Funds
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-4 flex space-x-7">
-                        <div>
-                            <div class="mt-1 flex items-center space-x-2">
-                                <button disabled
-                                    class="btn bg-slate-150 font-medium text-slate-800 hover:bg-slate-200 focus:bg-slate-200 active:bg-slate-200/80 dark:bg-navy-500 dark:text-navy-50 dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90">
-                                    Transfer To Card 
-                                </button>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="mt-1 flex items-center space-x-2">
-                                <button disabled
-                                    class="btn bg-slate-150 font-medium text-slate-800 hover:bg-slate-200 focus:bg-slate-200 active:bg-slate-200/80 dark:bg-navy-500 dark:text-navy-50 dark:hover:bg-navy-450 dark:focus:bg-navy-450 dark:active:bg-navy-450/90">
-                                    Withdraw Funds
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-span-12 mt-5 sm:col-span-6 sm:mt-0 lg:col-span-8">
-                <div class="swiper px-5 sm:pl-0 swiper-initialized swiper-horizontal swiper-backface-hidden" x-init="$nextTick(()=>new Swiper($el,{  slidesPerView: 'auto', spaceBetween: 16}))">
-                    <div class="swiper-wrapper" id="swiper-wrapper-41a38a4884c6d18a" aria-live="polite" style="transform: translate3d(0px, 0px, 0px);">
-                        <div class="swiper-slide relative h-40 w-64 shrink-0 rounded-lg bg-gradient-to-br from-[#ffffff55] to-[#ffffff20] swiper-slide-active" role="group" aria-label="1 / 4" style="margin-right: 16px;">
-                            <div class="absolute inset-0 flex flex-col justify-between rounded-lg border border-white/10 p-5">
-                                <div class="flex items-center justify-between">
-                                    <img class="h-3" src="/assets/images/payments/cc-visa-white.svg" alt="image" />
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="1.5"
-                                            d="M5.343 7.257a.5.5 0 01.354.147 6.5 6.5 0 010 9.192.64.64 0 00-.073.087 4.718 4.718 0 01-.56-.094 1.301 1.301 0 01-.109-.03.5.5 0 01.035-.67 5.5 5.5 0 000-7.778.5.5 0 01.353-.854zm-.422 9.288a.06.06 0 010 0zM15 1.6a.5.5 0 01.354.147 14.5 14.5 0 010 20.506.5.5 0 11-.708-.707 13.5 13.5 0 000-19.092A.5.5 0 0115 1.6zM10.172 4.43a.5.5 0 01.353.146 10.5 10.5 0 010 14.85.5.5 0 11-.707-.707 9.5 9.5 0 000-13.436.5.5 0 01.354-.853z"
-                                        ></path>
-                                    </svg>
-                                </div>
-                                <div class="text-white">
-                                    <p class="text-lg font-semibold tracking-wide">
-                                        €{{number_format($account->card1, 2)}}
-                                    </p>
-                                    <p class="mt-1 text-xs font-medium">
-                                        **** **** **** 7946
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide relative h-40 w-64 shrink-0 rounded-lg bg-gradient-to-br from-[#ffffff55] to-[#ffffff20] swiper-slide-next" role="group" aria-label="2 / 4" style="margin-right: 16px;">
-                            <div class="absolute inset-0 flex flex-col justify-between rounded-lg border border-white/10 p-5">
-                                <div class="flex items-center justify-between">
-                                    <img class="h-3" src="/assets/images/payments/cc-visa-white.svg" alt="image" />
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="1.5"
-                                            d="M5.343 7.257a.5.5 0 01.354.147 6.5 6.5 0 010 9.192.64.64 0 00-.073.087 4.718 4.718 0 01-.56-.094 1.301 1.301 0 01-.109-.03.5.5 0 01.035-.67 5.5 5.5 0 000-7.778.5.5 0 01.353-.854zm-.422 9.288a.06.06 0 010 0zM15 1.6a.5.5 0 01.354.147 14.5 14.5 0 010 20.506.5.5 0 11-.708-.707 13.5 13.5 0 000-19.092A.5.5 0 0115 1.6zM10.172 4.43a.5.5 0 01.353.146 10.5 10.5 0 010 14.85.5.5 0 11-.707-.707 9.5 9.5 0 000-13.436.5.5 0 01.354-.853z"
-                                        ></path>
-                                    </svg>
-                                </div>
-                                <div class="text-white">
-                                    <p class="text-lg font-semibold tracking-wide">
-                                        €{{number_format($account->card2, 2)}}
-                                    </p>
-                                    <p class="mt-1 text-xs font-medium">
-                                        **** **** **** 5699
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide relative h-40 w-64 shrink-0 rounded-lg bg-gradient-to-br from-[#ffffff55] to-[#ffffff20]" role="group" aria-label="3 / 4" style="margin-right: 16px;">
-                            <div class="absolute inset-0 flex flex-col justify-between rounded-lg border border-white/10 p-5">
-                                <div class="flex items-center justify-between">
-                                    <img class="h-3" src="/assets/images/payments/cc-visa-white.svg" alt="image" />
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="1.5"
-                                            d="M5.343 7.257a.5.5 0 01.354.147 6.5 6.5 0 010 9.192.64.64 0 00-.073.087 4.718 4.718 0 01-.56-.094 1.301 1.301 0 01-.109-.03.5.5 0 01.035-.67 5.5 5.5 0 000-7.778.5.5 0 01.353-.854zm-.422 9.288a.06.06 0 010 0zM15 1.6a.5.5 0 01.354.147 14.5 14.5 0 010 20.506.5.5 0 11-.708-.707 13.5 13.5 0 000-19.092A.5.5 0 0115 1.6zM10.172 4.43a.5.5 0 01.353.146 10.5 10.5 0 010 14.85.5.5 0 11-.707-.707 9.5 9.5 0 000-13.436.5.5 0 01.354-.853z"
-                                        ></path>
-                                    </svg>
-                                </div>
-                                <div class="text-white">
-                                    <p class="text-lg font-semibold tracking-wide">
-                                        €{{number_format($account->card3, 2)}}
-                                    </p>
-                                    <p class="mt-1 text-xs font-medium">
-                                        **** **** **** 8945
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-                </div>
-            </div>
-        </div>
-
-        <div class="card group col-span-12 pb-5 lg:col-span-8">
-            <div class="my-3 flex flex-col justify-between px-4 sm:flex-row sm:items-center sm:px-5">
-                <div class="flex flex-1 items-center justify-between space-x-2 sm:flex-initial">
-                    <h2 class="text-sm+ font-medium tracking-wide text-slate-700 dark:text-navy-100">
-                        Payment History
-                    </h2>
-                    
-                </div>
-                <div class="flex items-center space-x-4">
-                    <div class="flex cursor-pointer items-center space-x-2">
-                        <div class="h-3 w-3 rounded-full bg-accent"></div>
-                        <p>Deposit</p>
-                    </div>
-                    <div class="flex cursor-pointer items-center space-x-2">
-                        <div class="h-3 w-3 rounded-full bg-info"></div>
-                        <p>Withdrawal</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-12 gap-4 px-4 sm:gap-5 sm:px-5 lg:gap-6 lg:px-5">
-                <div class="col-span-12 sm:order-last sm:col-span-6 sm:mt-2 xl:col-span-7">
-                    <div class="ax-transparent-gridline">
-                        <div x-init="$nextTick(() => { $el._x_chart = new ApexCharts($el,pages.charts.historyTransactionsLine); $el._x_chart.render() });" style="min-height: 330px;">
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-12 rounded-lg bg-slate-50 p-3 dark:bg-navy-600 sm:col-span-6 xl:col-span-5">
-                    <div class="space-y-4">
-                        <div class="flex cursor-pointer items-center justify-between">
-                            <div class="flex items-center space-x-3">
-                                <div>
-                                    <p class="text-slate-700 line-clamp-1 dark:text-navy-100">
-                                        Konnor Guzman
-                                    </p>
-                                    <p class="text-xs text-slate-400 line-clamp-1 dark:text-navy-200">
-                                        Aug 21, 2018 - 08:05
-                                    </p>
-                                </div>
-                            </div>
-                            <p class="font-medium text-success">€11,660.22</p>
-                        </div>
-                        <div class="flex cursor-pointer items-center justify-between">
-                            <div class="flex items-center space-x-3">
-                                <div>
-                                    <p class="text-slate-700 line-clamp-1 dark:text-navy-100">
-                                        Henry Curtis
-                                    </p>
-                                    <p class="text-xs text-slate-400 line-clamp-1 dark:text-navy-200">
-                                        Aug 19, 2018 - 11:55
-                                    </p>
-                                </div>
-                            </div>
-                            <p class="font-medium text-success">€4,933.63</p>
-                        </div>
-                        <div class="flex cursor-pointer items-center justify-between">
-                            <div class="flex items-center space-x-3">
-                                <div>
-                                    <p class="text-slate-700 line-clamp-1 dark:text-navy-100">
-                                        Derrick Simmons
-                                    </p>
-                                    <p class="text-xs text-slate-400 line-clamp-1 dark:text-navy-200">
-                                        Jul 16, 2017 - 14:45
-                                    </p>
-                                </div>
-                            </div>
-                            <p class="font-medium text-success">€6,274.63</p>
-                        </div>
-                        <div class="flex cursor-pointer items-center justify-between">
-                            <div class="flex items-center space-x-3">
-                                <div>
-                                    <p class="text-slate-700 line-clamp-1 dark:text-navy-100">
-                                        Kartina West
-                                    </p>
-                                    <p class="text-xs text-slate-400 line-clamp-1 dark:text-navy-200">
-                                        Jun 13, 2017 - 11:30
-                                    </p>
-                                </div>
-                            </div>
-                            <p class="font-medium text-error">€5,947.63</p>
-                        </div>
-                        <div class="flex cursor-pointer items-center justify-between">
-                            <div class="flex items-center space-x-3">
-                                <div>
-                                    <p class="text-slate-700 line-clamp-1 dark:text-navy-100">
-                                        Samantha Shelton
-                                    </p>
-                                    <p class="text-xs text-slate-400 line-clamp-1 dark:text-navy-200">
-                                        Mar 10, 2017 - 09:41
-                                    </p>
-                                </div>
-                            </div>
-                            <p class="font-medium text-success">€7,536.24</p>
-                        </div>
-                        <div class="flex cursor-pointer items-center justify-between">
-                            <div class="flex items-center space-x-3">
-                                <div>
-                                    <p class="text-slate-700 line-clamp-1 dark:text-navy-100">
-                                        Joe Perkins
-                                    </p>
-                                    <p class="text-xs text-slate-400 line-clamp-1 dark:text-navy-200">
-                                        Feb 06, 2017 - 11:41
-                                    </p>
-                                </div>
-                            </div>
-                            <p class="font-medium text-success">€5,058.88</p>
-                        </div>
+<div class="container-fluid default-dashboard">
+    <div class="row widget-grid">
+        <div class="col-xl-5 col-md-6 proorder-xl-1 proorder-md-1">
+            <div class="card profile-greeting p-0">
+                <div class="card-body">
+                    <div class="img-overlay">
+                        <h1>Good day, {{auth()->user()->name}}</h1>
+                        <p>Welcome to your dashboard account!</p>
+                        <a class="btn" href="{{route('admin.dashboard')}}">Transfer Funds</a>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="card col-span-12 px-4 pb-5 sm:px-5 lg:col-span-4">
-            <div class="flex items-center justify-between py-3">
-                <h2 class="font-medium tracking-wide text-slate-700 dark:text-navy-100">
-                    Send Money
-                </h2>
+        <div class="col-xl-3 col-md-6 proorder-xl-2 proorder-md-2">
+            <div class="card">
+                <div class="card-header card-no-border pb-0">
+                    <div class="header-top">
+                        <h4>Opening Accounts</h4>
+                    </div>
+                </div>
+                <div class="card-body pb-0 opening-box">
+                    <div class="d-flex align-items-center gap-2">
+                        <h2>$ {{number_format($account->balance, 2)}}</h2>
+                    </div>
+                    <div id="growthchart"></div>
+                </div>
             </div>
-            <form action="{{route('admin.transfer')}}" method="get">
-                @csrf
-
-                <div class="mt-2 space-y-4">
-                    <label class="block">
-                        <span class="text-xs+">Enter Account Number</span>
-                        <input
-                            x-input-mask="{
-                            creditCard: true
-                        }"
-                            class="form-input mt-1.5 h-9 w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
-                            placeholder="**** **** **** ****"
-                            type="text"
-                            required
-                        />
-                    </label>
-                    <label class="block">
-                        <span class="text-xs+">Enter Bank Name</span>
-                        <input
-                            class="form-input mt-1.5 h-9 w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
-                            placeholder=""
-                            type="text"
-                            required
-                        />
-                    </label>
-                    <label class="block">
-                        <span class="text-xs+">Enter Account Name</span>
-                        <input
-                            class="form-input mt-1.5 h-9 w-full rounded-lg border border-slate-300 bg-transparent px-3 py-2 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
-                            placeholder=""
-                            type="text"
-                            required
-                        />
-                    </label>
-                    <div>
-                        <span class="text-xs+">Amount</span>
-
-                        <div class="mt-1.5 flex h-9 -space-x-px">
-                            <select
-                                class="form-select rounded-l-lg border border-slate-300 bg-white px-3 py-2 pr-9 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:bg-navy-700 dark:hover:border-navy-400 dark:focus:border-accent"
-                            >
-                                <option>€</option>
-                            </select>
-                            <input
-                                class="form-input w-full rounded-r-lg border border-slate-300 bg-transparent px-3 py-2 placeholder:text-slate-400/70 hover:z-10 hover:border-slate-400 focus:z-10 focus:border-primary dark:border-navy-450 dark:hover:border-navy-400 dark:focus:border-accent"
-                                placeholder="Price"
-                                type="number"
-                                required
-                            />
+        </div>
+        <div class="col-xl-4 col-md-5 proorder-xl-3 proorder-md-3">
+            <div class="card">
+                <div class="card-header card-no-border pb-0">
+                    <div class="header-top">
+                        <h4>Credit Card 1</h4>
+                    </div>
+                </div>
+                <div class="card-body pb-0 opening-box">
+                    <div class="d-flex align-items-center gap-2">
+                        <h2>$ {{number_format($account->card1, 2)}}</h2>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header card-no-border pb-0">
+                    <div class="header-top">
+                        <h4>Credit Card 2</h4>
+                    </div>
+                </div>
+                <div class="card-body pb-0 opening-box">
+                    <div class="d-flex align-items-center gap-2">
+                        <h2>$ {{number_format($account->card2, 2)}}</h2>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-7 proorder-xl-5 box-col-7 proorder-md-5">
+            <div class="card">
+                <div class="card-header card-no-border pb-0">
+                    <div class="header-top">
+                        <h4>Recent Transactions</h4>
+                        <div class="dropdown icon-dropdown">
+                            <button class="btn dropdown-toggle" id="userdropdown0" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="icon-more-alt"></i></button>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown0">
+                                <a class="dropdown-item" href="#">Weekly</a><a class="dropdown-item" href="#">Monthly</a><a class="dropdown-item" href="#">Yearly</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <button type="submit"
-                    class="btn mt-5 h-10 w-full bg-primary font-medium text-white hover:bg-primary-focus focus:bg-primary-focus active:bg-primary-focus/90 dark:bg-accent dark:hover:bg-accent-focus dark:focus:bg-accent-focus dark:active:bg-accent/90">
-                    Send Money
-                </button>
-            </form>
+                <div class="card-body pt-0 projects px-0">
+                    <div class="table-responsive theme-scrollbar">
+                        <table class="table display" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>Trans. ID</th>
+                                    <th>Account name</th>
+                                    <th>Account number</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($transactions as $transaction)
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1 ms-2">
+                                                <a href="#"> <h6>{{$transaction->trans_id}}</h6></a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="project-dot">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0"><span class="bg-primary"></span></div>
+                                            <div class="flex-grow-1">
+                                                <h6>{{$transaction->account_name}}</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{$transaction->account_number}}</td>
+                                    <td>{{number_format($transaction->amount, 2)}}</td>
+                                    <td>{{\Carbon\Carbon::parse($transaction->date)->toFormattedDateString()}}</td>
+                                    <td>{{$transaction->status}}</td>
+                                    
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-5 col-md-7 proorder-xl-4 box-col-5 proorder-md-6">
+            <div class="card">
+                <div class="card-header card-no-border pb-0">
+                    <div class="header-top">
+                        <h4>Customer Transaction</h4>
+                        <div class="dropdown icon-dropdown">
+                            <button class="btn dropdown-toggle" id="userdropdown11" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="icon-more-alt"></i></button>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown11">
+                                <a class="dropdown-item" href="#">Weekly</a><a class="dropdown-item" href="#">Monthly</a><a class="dropdown-item" href="#">Yearly</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body pb-0">
+                    <div id="customer-transaction"></div>
+                </div>
+            </div>
         </div>
     </div>
-    
-</main>
+</div>
 @endsection
